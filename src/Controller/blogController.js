@@ -12,7 +12,7 @@ const createBlogs = async function (req, res) {
       authorId: data.authorId,
       category: data.category,
       isPublished: data.isPublished ? isPublished : false,
-      publishedAt: data.publishedAt ? new Data() : null,
+      publishedAt: data.publishedAt ? new Date() : null,
     };
     let usualReg = /^([a-zA-Z0-9]+)/;
 
@@ -136,7 +136,7 @@ const updateBlogsData = async function (req, res) {
       res.status(401).send({ status: false, msg: "not authorised" });
     }
     //Verify that the document is deleted or not
-    if (blog.isDeleted)
+    if (blog.isDeleted===true)
       return res.status(404).send({
         status: false,
         msg: "No such blog found or has already been deleted",
@@ -242,7 +242,7 @@ const deleteBlogByQuery = async function (req, res) {
         msg: " Details are needed to delete a blog",
       });
     }
-
+    
     let data = Object.values(querydata);
     
     if (data.length == 0) {

@@ -12,12 +12,12 @@ router.get("/blogs", midAuth.authentication, blogController.getBlogs); // Gettin
 
 router.put(
   "/blogs/:blogId",
-  midAuth.authentication,
-  midAuth.autherisation,
+ midAuth.authentication,
+ midAuth.autherisation,
   blogController.updateBlogsData
 ); // Updating Blogs
-router.delete(
-  "/blogs/:blogId",
+router.delete(    
+  "/blogs/:blogId",   
   midAuth.authentication,
   midAuth.autherisation,
   blogController.deleteByBlogId
