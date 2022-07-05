@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const route = require("./routes/route");
 const mongoose = require("mongoose");
 const app = express();
-const testPort = 3000;
+
 
 app.use(bodyParser.json());
 
@@ -18,6 +18,6 @@ app.use("/", route);
 
 
 
-app.listen(process.env.PORT || testPort, function() {
-    console.log("Express app running on port " + (process.env.PORT || testPort));
+app.listen(process.env.PORT || 3001, function() {
+    console.log("Express app running on port " + (process.env.PORT || 3001));
 });
